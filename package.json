@@ -1,0 +1,37 @@
+{
+  "name": "watt-cli",
+  "version": "0.0.1",
+  "description": "企业级前端脚手架",
+  "bin": {
+    "watt": "./bin/watt.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/ChuPiJiang/watt-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "vue-cli",
+    "vue3",
+    "vite3"
+  ],
+  "files": [
+    "bin",
+    "lib"
+  ],
+  "engines": {
+    "node": ">=12.18.3"
+  },
+  "author": "cabber",
+  "deprecated": "低于版本的都是废弃版本，并进行提示",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^5.0.1",
+    "commander": "^9.4.0",
+    "download-git-repo": "^3.0.2",
+    "inquirer": "^9.1.0"
+  }
+}
