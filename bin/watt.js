@@ -9,7 +9,7 @@ const path = require('path')
 // const fs = require('fs')
 const { version } = require('../package.json')
 
-const regQues = require('../question/reg')
+const regQues = require('../lib/question/reg')
 
 cmd.version(version, '-V, --version')
   .command('upload')
