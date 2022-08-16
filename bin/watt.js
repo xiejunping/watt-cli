@@ -28,11 +28,11 @@ cmd.version(version, '-V, --version')
 // 初次使用需注册
 cmd.version(version, '-V, --version')
   .command('register')
+  .alias('reg')
   .action(async () => {
     const id = await machine.machineId()
     inquirer.prompt(regQues).then(answers => {
-
-      console.log(answers.name, id)
+      require('../lib/register').run(answers, id)
     })
   })
 
