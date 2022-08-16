@@ -45,6 +45,7 @@ watt upload -d test/ -p demo  # 上传当前目录下的 test 文件夹内所有
 watt upload -c -p test #上传当前目录下所有文件 到 /test
 ```
 参数说明
+
 | 参数名 | 全称参数 | 说明 |
 | :--- | --- | --- | --- |
 | -c | -cwd | 是否当前目录 |
