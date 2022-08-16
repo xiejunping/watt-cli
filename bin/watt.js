@@ -13,9 +13,15 @@ const regQues = require('../question/reg')
 
 cmd.version(version, '-V, --version')
   .command('upload')
-  .action(async cmd => {
+  .description('上传静态文件到CDN，上传后地址 https://static.jsvue.cn/${prefix}/${dir/file}')
+  .alias('u')
+  .option('-p, --prefix <string> [prefix]', '上传后文件前缀（文件夹名可叠加‘/’）')
+  .option('-c, --cwd [cwd]', '是否当前目录')
+  .option('-f, --file <string> [file]', '单文件路径')
+  .option('-d, --dir <string> [dir]', '目录路径')
+  .action(async (cmd) => {
     const id = await machine.machineId()
-    require('./lib/uploader').run(cmd)
+    require('../lib/uploader').run(cmd, id)
   })
 
 
