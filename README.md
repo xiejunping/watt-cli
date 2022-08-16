@@ -17,22 +17,39 @@
 #### 安装教程
 
 全局安装命令
-```
+```js
 npm i watt-cli -g
 ```
 
 查看当前版本
-```
+```js
 watt -V
 
 watt --version
 ```
 
 注册
-```
+```js
 watt register
 ```
 > 此操作会提示输入用户名
+
+上传文件
+```js
+watt upload -h  #可以查看帮助
+
+watt upload -f test.js -p demo #上传当前目录文件 ./test.js 到 /demo
+
+watt upload -d test/ -p demo  # 上传当前目录下的 test 文件夹内所有文件到 /demo
+
+watt upload -c -p test #上传当前目录下所有文件 到 /test
+```
+参数说明
+| 参数名 | 全称参数 | 说明 |
+| -c | -cwd | 是否当前目录 |
+| -d | -dir | 整个目录上传 |
+| -f | -file | 单文件路径上传 |
+| -p | -prefix | 上传到OSS，上传后文件前缀（文件夹名可叠加‘/’） |
 
 #### 使用说明
 
