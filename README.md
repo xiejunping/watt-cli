@@ -90,3 +90,64 @@ watt upload -c -p test #上传当前目录下所有文件 到 /test
 #### 示例
 
 `watt u -f ./lib/uploader/banner_bg.jpg -p demo`
+
+```js
+mac@MACdeMacBook-Air watt-cli % watt u -f ./lib/uploader/banner_bg.jpg -p demo
+Config {
+  useHttpsDomain: false,
+  useCdnDomain: false,
+  zone: {
+    srcUpHosts: [ 'up-z2.qiniup.com', 'up-gz.qiniup.com', 'up-fs.qiniup.com' ],
+    cdnUpHosts: [
+      'upload-z2.qiniup.com',
+      'upload-gz.qiniup.com',
+      'upload-fs.qiniup.com'
+    ],
+    ioHost: 'iovip-z2.qbox.me',
+    rsHost: 'rs-z2.qbox.me',
+    rsfHost: 'rsf-z2.qbox.me',
+    apiHost: 'api-z2.qiniu.com'
+  },
+  zoneExpire: -1
+}
+{
+  token: 'Ab4xf9sEO68T3oDUM-lNkktl1IvpCsQPY2ukQhQ0:T4T2bsuVdq35l_E99tOL2b62ihY=:eyJzY29wZSI6InN0YXRpYy1qc3Z1ZSIsImRlYWRsaW5lIjoxNjYxMDA2OTk1fQ==',
+  filePath: './lib/uploader/banner_bg.jpg',
+  key: 'banner_bg.jpg',
+  prefix: 'demo'
+}
+{ hash: 'Fh4i3pgrQSJWUYjD9vUfWMWU2lWa', key: 'banner_bg.jpg' } {
+  status: 200,
+  statusCode: 200,
+  statusMessage: 'OK',
+  headers: {
+    server: 'openresty',
+    date: 'Sat, 20 Aug 2022 12:49:55 GMT',
+    'content-type': 'application/json',
+    'content-length': '61',
+    connection: 'keep-alive',
+    'access-control-allow-headers': 'X-File-Name, X-File-Type, X-File-Size',
+    'access-control-allow-methods': 'OPTIONS, HEAD, POST',
+    'access-control-allow-origin': '*',
+    'access-control-expose-headers': 'X-Log, X-Reqid',
+    'access-control-max-age': '2592000',
+    'cache-control': 'no-store, no-cache, must-revalidate',
+    pragma: 'no-cache',
+    'x-content-type-options': 'nosniff',
+    'x-reqid': '92UAAAA_6HmDDg0X',
+    'x-svr': 'UP',
+    'x-log': 'X-Log'
+  },
+  size: 61,
+  aborted: false,
+  rt: 210,
+  keepAliveSocket: false,
+  data: { hash: 'Fh4i3pgrQSJWUYjD9vUfWMWU2lWa', key: 'banner_bg.jpg' },
+  requestUrls: [ 'http://up-z2.qiniup.com/' ],
+  timing: null,
+  remoteAddress: '14.29.110.9',
+  remotePort: 80,
+  socketHandledRequests: 1,
+  socketHandledResponses: 1
+}
+```

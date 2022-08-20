@@ -32,7 +32,6 @@
     "chalk": "^5.0.1",
     "commander": "^9.4.0",
     "download-git-repo": "^3.0.2",
-    "form-data": "^2.3.2",
     "inquirer": "^8.0.0",
     "mime": "^3.0.0",
     "node-fetch": "^2.1.2",
