@@ -32,12 +32,14 @@
     "chalk": "^5.0.1",
     "commander": "^9.4.0",
     "download-git-repo": "^3.0.2",
+    "handlebars": "^4.7.7",
     "inquirer": "^8.0.0",
     "mime": "^3.0.0",
     "node-fetch": "^2.1.2",
     "node-machine-id": "^1.1.12",
     "ora": "^6.1.2",
     "qiniu": "^7.7.0",
+    "rimraf": "^3.0.2",
     "url": "^0.11.0"
   }
 }

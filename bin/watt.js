@@ -9,8 +9,10 @@ const path = require('path')
 // const fs = require('fs')
 const { version } = require('../package.json')
 
+const initQues = require('../lib/question/init')
 const regQues = require('../lib/question/reg')
 
+// 静态资源工具
 cmd.version(version, '-V, --version')
   .command('upload')
   .description('上传静态文件到CDN，上传后地址 https://static.jsvue.cn/${prefix}/${dir/file}')
@@ -24,6 +26,16 @@ cmd.version(version, '-V, --version')
     require('../lib/uploader').run(cmd, id)
   })
 
+// 脚手架
+cmd.version(version, '-V, --version')
+  .command('init <name>')
+  .description('创建项目脚手架，快速生成项目模版')
+  .action(async (name) => {
+    const id = await machine.machineId()
+    inquirer.prompt(initQues).then(answers => {
+      require('../lib/cli/' + answers.type)(name)
+    })
+  })
 
 // 初次使用需注册
 cmd.version(version, '-V, --version')
