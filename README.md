@@ -43,7 +43,13 @@ watt upload -f test.js -p demo #上传当前目录文件 ./test.js 到 /demo
 watt upload -d test/ -p demo  # 上传当前目录下的 test 文件夹内所有文件到 /demo
 
 watt upload -c -p test #上传当前目录下所有文件 到 /test
+
+watt u -f ./lib/uploader/banner_bg.jpg -p demo  # 假使这个目录的文件存在 ./lib/uploader/banner_bg.jpg
+
+
 ```
+#### 会返回这个路径`https://static.jsvue.cn/demo/banner_bg.jpg`，复制到项目中直接使用即可，（使用了回源，流量费用，请先 tinyPng 网站里压缩一下，钱包扛不住）
+
 参数说明
 
 | 参数名 | 全称参数 | 说明 |
