@@ -43,7 +43,13 @@ watt upload -f test.js -p demo #上传当前目录文件 ./test.js 到 /demo
 watt upload -d test/ -p demo  # 上传当前目录下的 test 文件夹内所有文件到 /demo
 
 watt upload -c -p test #上传当前目录下所有文件 到 /test
+
+watt u -f ./lib/uploader/banner_bg.jpg -p demo  # 假使这个目录的文件存在 ./lib/uploader/banner_bg.jpg
+
+
 ```
+#### 会返回这个路径`https://static.jsvue.cn/demo/banner_bg.jpg`，复制到项目中直接使用即可，（使用了回源，流量费用，请先 tinyPng 网站里压缩一下，钱包扛不住）
+
 参数说明
 
 | 参数名 | 全称参数 | 说明 |
@@ -53,11 +59,44 @@ watt upload -c -p test #上传当前目录下所有文件 到 /test
 | -f | -file | 单文件路径上传 |
 | -p | -prefix | 上传到OSS，上传后文件前缀（文件夹名可叠加‘/’） |
 
+创建模板项目
+```js
+watt init name  #项目名, 只能是英文，规则跟目录的命名规则一致，因为就是生成好的项目目录
+
+# 提示覆盖
+
+# package里的一些动态命名
+
+-$> watt init ms
+? 请选择您要创建的项目类型： 中台系统（vue3 + ant-design + vuex + router）
+? 是否覆盖原有的文件夹 是
+? 项目名称 ms
+? 项目title
+? 项目描述
+✔ 下载模板...
+项目初始化完成✅
+
+cd name
+
+npm install
+
+npm run serve
+
+```
+
+模板列表
+- 旧版中台系统（vue + iview + vuex + router）
+- 中台系统（vue3 + ant-design + vuex + router）
+- H5活动单页（vue3 + ant-design + vuex）
+...
+更多待添加
+
 #### 使用说明
 
 - 查看当前版本
 - 首次使用需注册
 - 上传静态文件到CDN
+- 创建模板项目
 
 
 1.  查看当前版本
@@ -68,6 +107,9 @@ watt upload -c -p test #上传当前目录下所有文件 到 /test
 
 3.  上传静态文件到CDN
 前端最基本的操作，为了首屏快出，能上CDN的都应该上，作为企业级应用，最开始就得把这个脚手架架好
+
+4.  创建模板项目
+前端脚手架基本操作，但是要使用好，就要备好模板项目的目录，文件，以及使用需使用的包，包括请求的封装等，做到很好还需要自己去想哦
 
 #### 参与贡献
 
