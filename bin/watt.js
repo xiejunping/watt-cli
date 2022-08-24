@@ -7,6 +7,7 @@ const machine = require('node-machine-id')
 // const color = require('chalk')
 const path = require('path')
 // const fs = require('fs')
+const sentry = require('../lib/sentry')
 const { version } = require('../package.json')
 
 const initQues = require('../lib/question/init')
@@ -23,6 +24,7 @@ cmd.version(version, '-V, --version')
   .option('-d, --dir <string> [dir]', '目录路径')
   .action(async (cmd) => {
     const id = await machine.machineId()
+    await sentry(id, 'upload')
     require('../lib/uploader').run(cmd, id)
   })
 
@@ -32,6 +34,7 @@ cmd.version(version, '-V, --version')
   .description('创建项目脚手架，快速生成项目模版')
   .action(async (name) => {
     const id = await machine.machineId()
+    await sentry(id, 'init')
     inquirer.prompt(initQues).then(answers => {
       require('../lib/cli/' + answers.type)(name)
     })
@@ -43,6 +46,7 @@ cmd.version(version, '-V, --version')
   .alias('reg')
   .action(async () => {
     const id = await machine.machineId()
+    await sentry(id, 'reg')
     inquirer.prompt(regQues).then(answers => {
       require('../lib/register').run(answers, id)
     })
