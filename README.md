@@ -89,7 +89,17 @@ npm run serve
 - 中台系统（vue3 + ant-design + vuex + router）
 - H5活动单页（vue3 + ant-design + vuex）
 ...
-更多待添加
+
+
+### 中台系统（vue3 + ant-design + vuex + router）
+
+[开源板模](https://gitee.com/ChuPiJiang/library_vue3_admin.git)
+
+2022年更新 `vue3` 版本，使用 ant-design 2.0 (暂不维护) 
+此模板主要是快速搭建中台管理系统
+集成了  自已研发的  中台组件库，当然你可以在项目中去掉，如果方便可以移步[文档](https://doc.jsvue.cn) 
+
+
 
 #### 使用说明
 
