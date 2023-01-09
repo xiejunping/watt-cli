@@ -52,6 +52,11 @@ watt u -f ./lib/uploader/banner_bg.jpg -p demo  # 假使这个目录的文件存
 ```
 #### 会返回这个路径`https://static.jsvue.cn/demo/banner_bg.jpg`，复制到项目中直接使用即可，（使用了回源，流量费用，请先 tinyPng 网站里压缩一下，钱包扛不住）
 
+~~图片上传过程中自动转成webp的格式，上传两种模式，在浏览器判断是否支持`webp` 使用不同的链接地址~~ 
+
+七牛自动转换，环境不支持兜底：
+如果图片使用webp模式，加速加载可以使用参数 `?imageView2/0/format/webp`
+
 参数说明
 
 | 参数名 | 全称参数 | 说明 |
