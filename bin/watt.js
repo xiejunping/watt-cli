@@ -7,13 +7,12 @@ const machine = require('node-machine-id')
 // const color = require('chalk')
 const path = require('path')
 // const fs = require('fs')
-const { formatDate, dataProvider } = require('../util/index')
 const sentry = require('../lib/sentry')
-const HttpClient = require('../lib/fetch')
 const { version } = require('../package.json')
 
 const initQues = require('../lib/question/init')
 const regQues = require('../lib/question/reg')
+const useQues = require('../lib/question/use')
 
 // 静态资源工具
 cmd.version(version, '-V, --version')
@@ -61,14 +60,9 @@ cmd.version(version, '-V, --version')
   .alias('use')
   .action(async () => {
     const id = await machine.machineId()
-    let beginDate = formatDate(new Date(), 'yyyy/MM/dd')
-    const info = await HttpClient.get(`/user-center/watt/countCli?deviceId=${id}&beginDate=${beginDate}`)
-
-    if (info && info.code === 0 && info.data) {
-      console.info(dataProvider(info.data, 'total', '_id'))
-    } else {
-      console.info(info)
-    }
+    inquirer.prompt(useQues).then(answers => {
+      require('../lib/usage').run(answers, id)
+    })
   })
 
 cmd.parse(process.argv);
