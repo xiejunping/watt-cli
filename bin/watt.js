@@ -63,7 +63,7 @@ cmd.version(version, '-V, --version')
     const id = await machine.machineId()
     let beginDate = formatDate(new Date(), 'yyyy/MM/dd')
     const info = await HttpClient.get(`/user-center/watt/countCli?deviceId=${id}&beginDate=${beginDate}`)
-    console.log(info)
+
     if (info && info.code === 0 && info.data) {
       console.info(dataProvider(info.data, 'total', '_id'))
     } else {
