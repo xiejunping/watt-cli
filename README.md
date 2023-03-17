@@ -212,6 +212,9 @@ C:\Users\Administrator>
 - 文件上传时增加用户ID，并根据用户区分目录
 - 中台可管理用户的文件 [https://admin.jsvue.cn/qw/index.html](https://admin.jsvue.cn/qw/index.html)
 
+#### v0.0.10
+增加 `usage` 使用情况命令，修复文件夹上传不成功问题
+
 ### 参与贡献
 
 Cabber,
