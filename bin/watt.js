@@ -7,7 +7,9 @@ const machine = require('node-machine-id')
 // const color = require('chalk')
 const path = require('path')
 // const fs = require('fs')
+const { formatDate, dataProvider } = require('../util/index')
 const sentry = require('../lib/sentry')
+const HttpClient = require('../lib/fetch')
 const { version } = require('../package.json')
 
 const initQues = require('../lib/question/init')
@@ -50,6 +52,21 @@ cmd.version(version, '-V, --version')
     inquirer.prompt(regQues).then(answers => {
       require('../lib/register').run(answers, id)
     })
+  })
+
+// 统计使用
+cmd.version(version, '-V, --version')
+  .command('usage')
+  .alias('use')
+  .action(async (beginDate) => {
+    const id = await machine.machineId
+    if (!beginDate) beginDate = formatDate(new Date(), 'yyyy/MM/dd')
+    const info = await HttpClient.get(`/user-center/watt/countCli?deviceId=${id}&beginDate=${beginDate}`)
+    if (info && info.code === 0 && info.data) {
+      console.info(dataProvider(info.data, 'type', 'total'))
+    } else {
+      console.info(info)
+    }
   })
 
 cmd.parse(process.argv);
