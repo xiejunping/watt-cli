@@ -1,9 +1,22 @@
 'use strict';
 const machine = require('node-machine-id')
+const { formatDate, dataProvider } = require('../util/index')
 
 ;(async () => {
   const id = await machine.machineId()
-  console.log(id)
+  const beginDate = formatDate(new Date(), 'yyyy/MM/dd')
+
+  const data = dataProvider([
+    {
+        "total": 2,
+        "type": "reg"
+    },
+    {
+        "total": 41,
+        "type": "upload"
+    }
+], 'total', 'type')
+  console.log(id, beginDate, data)
 })()
 
 /*

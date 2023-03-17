@@ -38,9 +38,6 @@ function formatDate(date, fmt) {
  */
 function dataProvider (arr, fmtLabel = 'label', fmtValue = 'value') {
   let obj = {}
-  if (isArray(arr)) {
-    throw new TypeError('args[0] must a array')
-  }
   arr.forEach(r => {
     obj[r[fmtValue]] = r[fmtLabel]
   })

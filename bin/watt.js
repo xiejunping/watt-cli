@@ -57,13 +57,15 @@ cmd.version(version, '-V, --version')
 // 统计使用
 cmd.version(version, '-V, --version')
   .command('usage')
+  .description('统计脚手架使用，需传入统计开始日期')
   .alias('use')
-  .action(async (beginDate) => {
-    const id = await machine.machineId
-    if (!beginDate) beginDate = formatDate(new Date(), 'yyyy/MM/dd')
+  .action(async () => {
+    const id = await machine.machineId()
+    let beginDate = formatDate(new Date(), 'yyyy/MM/dd')
     const info = await HttpClient.get(`/user-center/watt/countCli?deviceId=${id}&beginDate=${beginDate}`)
+    console.log(info)
     if (info && info.code === 0 && info.data) {
-      console.info(dataProvider(info.data, 'type', 'total'))
+      console.info(dataProvider(info.data, 'total', '_id'))
     } else {
       console.info(info)
     }
