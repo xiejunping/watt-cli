@@ -36,7 +36,7 @@ cmd.version(version, '-V, --version')
   .alias('r')
   .option('-f, --file <string> [file]', '单文件路径')
   .option('-d, --dir <string> [dir]', '目录路径')
-  .action(async () => {
+  .action(async (cmd) => {
     const id = await machine.machineId()
     await sentry(id, 'refresh')
     require('../lib/cdn').run(cmd, id)
