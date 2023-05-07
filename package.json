@@ -1,6 +1,6 @@
 {
   "name": "watt-cli",
-  "version": "0.0.10",
+  "version": "0.0.10-beta",
   "description": "企业级前端脚手架",
   "bin": {
     "watt": "./bin/watt.js"

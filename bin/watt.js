@@ -29,6 +29,19 @@ cmd.version(version, '-V, --version')
     require('../lib/uploader').run(cmd, id)
   })
 
+// 静态资源刷新
+cmd.version(version, '-V, --version')
+  .command('refresh')
+  .description('刷新CDN上静态文件')
+  .alias('r')
+  .option('-f, --file <string> [file]', '单文件路径')
+  .option('-d, --dir <string> [dir]', '目录路径')
+  .action(async () => {
+    const id = await machine.machineId()
+    await sentry(id, 'refresh')
+    require('../lib/cdn').run(cmd, id)
+  })
+
 // 脚手架
 cmd.version(version, '-V, --version')
   .command('init <name>')
