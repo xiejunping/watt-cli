@@ -212,6 +212,7 @@ C:\Users\Administrator>
 - 增加 vue2 中台模板，
 - 文件上传时增加用户ID，并根据用户区分目录
 - 中台可管理用户的文件 [https://admin.jsvue.cn/qw/index.html](https://admin.jsvue.cn/qw/index.html)
+PS:登录信息： 用户`上面使用 watt register 注册时输入的名称`  密码 `123456 这是在watt register时系统的默认密码`
 
 #### v0.0.10
 增加 `usage` 使用情况命令，修复文件夹上传不成功问题
