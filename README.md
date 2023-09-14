@@ -7,13 +7,13 @@
     <img alt="" src="https://img.shields.io/circleci/build/github/xiejunping/watt-cli.svg?style=flat-square">
 </p>  
 
-[![npm][npm]][npm-url]
+<!-- [![npm][npm]][npm-url]
 [![node][node]][node-url]
 [![deps][deps]][deps-url]
 [![tests][tests]][tests-url]
 [![cover][cover]][cover-url]
 [![chat][chat]][chat-url]
-[![size][size]][size-url]
+[![size][size]][size-url] -->
 
 ## 介绍
 来吧，大家一起重复造轮子--“企业级前端脚手架”。有没有想过当公司要求你进步，你是否知道为什么要产生一个脚手架，`vue-cli`他不香吗...
