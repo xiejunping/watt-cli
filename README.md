@@ -1,5 +1,13 @@
 # watt-cli
 
+<p style="text-align:center">
+    <img alt="" src="https://img.shields.io/npm/v/watt-cli/latest.svg?style=flat-square" />
+    <img alt="" src="https://img.shields.io/npm/dt/watt-cli.svg?style=flat-square">
+    <img alt="" src="https://img.shields.io/codecov/c/github/xiejunping/watt-cli.svg?style=flat-square">
+    <img alt="" src="https://img.shields.io/codecov/c/github/xiejunping/watt-cli.svg?style=flat-square">
+    <img alt="" src="https://img.shields.io/circleci/build/github/xiejunping/watt-cli.svg?style=flat-square">
+</p>  
+
 [![npm][npm]][npm-url]
 [![node][node]][node-url]
 [![deps][deps]][deps-url]
