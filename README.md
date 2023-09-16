@@ -136,7 +136,7 @@ watt r -d https://static.jsvue.cn/xxx/dir
 
 ### 创建模板项目
 
-```js
+```shell
 watt init name  #项目名, 只能是英文，规则跟目录的命名规则一致，因为就是生成好的项目目录
 
 # 提示覆盖
@@ -163,12 +163,14 @@ npm run serve
 #### 模板说明
 会在命令行提示显示
 模板列表
-- 旧版中台系统（vue + iview + vuex + router）
-- 中台系统（vue3 + ant-design + vuex + router）
-- H5活动单页（vue3 + ant-design + vuex）
-- 前端框架文档（vue + vuepress）
-- 静态网站或博客（nuxt2 + generate）
-...
+- 旧版中台系统（vue2 + ant-design + vuex + router） **[`开源模版`](https://gitee.com/ChuPiJiang/library_vue2_admin)**
+- 中台系统（vue3 + ant-design + vuex + router）    **[`开源模版`](https://gitee.com/ChuPiJiang/library_vue3_admin)**
+- CMS静态网站或博客（nuxt2 + generate）            **[`开源模版`](https://gitee.com/ChuPiJiang/library_nuxt2_generate)**
+- 网站开发模版（nuxt3 + generate）               **[`开源模版`](https://gitee.com/ChuPiJiang/library-nuxt3-cms)**
+- H5活动单页（nuxt3 + vant4 + h5 ）                **[`开源模版`](https://gitee.com/ChuPiJiang/library-nuxt3-generate)**
+- 前端框架文档（vue2 + vuepress）                   **[`开源模版`](https://gitee.com/ChuPiJiang/library_vuepress_doc)**
+
+更多待加...
 
 #### 旧版中台系统（vue + iview + vuex + router）
 
@@ -256,7 +258,7 @@ PS:登录信息： 用户`上面使用 watt register 注册时输入的名称`  
 增加 `usage` 使用情况命令，修复文件夹上传不成功问题
 
 #### v0.0.11
-增加 CDN 文件刷新功能，并修复目录上传不能用的问题
+增加 CDN 文件刷新功能
 
 ### 参与贡献
 
