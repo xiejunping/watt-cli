@@ -4,9 +4,9 @@
 const cmd = require('commander')
 const inquirer = require('inquirer')
 const machine = require('node-machine-id')
-// const color = require('chalk')
+const chalk = require('chalk')
 const path = require('path')
-// const fs = require('fs')
+const fs = require('fs')
 const sentry = require('../lib/sentry')
 const { version } = require('../package.json')
 
@@ -73,9 +73,30 @@ cmd.version(version, '-V, --version')
   .alias('use')
   .action(async () => {
     const id = await machine.machineId()
+    await sentry(id, 'use')
     inquirer.prompt(useQues).then(answers => {
       require('../lib/usage').run(answers, id)
     })
+  })
+
+cmd.version(version, '-V, --version')
+  .command('deploy')
+  .description('部署项目上线，需在项目中约定配置 deploy.config.js ')
+  .alias('d')
+  .action(async () => {
+    const id = await machine.machineId()
+    const isRoot = fs.existsSync(path.resolve(process.cwd(), 'package.json'))
+    const hasDeployConfig = fs.existsSync(path.resolve(process.cwd(), 'deploy.config.js'))
+    if (!isRoot) {
+      console.log(chalk.red('请在项目根目录下执行部署命令'))
+      process.exit(1)
+    }
+    if (!hasDeployConfig) {
+      console.log(chalk.red('配置文件不存在, 请在项目根目录手动创建文件 deploy.config.js'))
+      process.exit(1)
+    }
+    await sentry(id, 'deploy')
+    require('../lib/deploy/index').run(id)
   })
 
 cmd.parse(process.argv);

@@ -1,6 +1,6 @@
 {
   "name": "watt-cli",
-  "version": "0.0.11",
+  "version": "0.0.12-beta",
   "description": "企业级前端脚手架",
   "bin": {
     "watt": "./bin/watt.js"
@@ -32,6 +32,7 @@
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^9.4.0",
+    "cos-nodejs-sdk-v5": "^2.12.3",
     "download-git-repo": "^3.0.2",
     "handlebars": "^4.7.7",
     "inquirer": "^8.0.0",
@@ -41,6 +42,7 @@
     "ora": "^5.4.1",
     "qiniu": "^7.7.0",
     "rimraf": "^3.0.2",
+    "tencentcloud-sdk-nodejs": "^4.0.655",
     "url": "^0.11.0"
   }
 }
