@@ -15,7 +15,7 @@ const regQues = require('../lib/question/reg')
 const useQues = require('../lib/question/use')
 
 // 静态资源工具
-cmd.version(version, '-V, --version')
+cmd.version(version, '-V, -v, --version')
   .command('upload')
   .description('上传静态文件到CDN，上传后地址 https://static.jsvue.cn/${prefix}/${dir/file}')
   .alias('u')
@@ -30,7 +30,7 @@ cmd.version(version, '-V, --version')
   })
 
 // 静态资源刷新
-cmd.version(version, '-V, --version')
+cmd.version(version, '-V, -v, --version')
   .command('refresh')
   .description('刷新CDN上静态文件')
   .alias('r')
@@ -43,7 +43,7 @@ cmd.version(version, '-V, --version')
   })
 
 // 脚手架
-cmd.version(version, '-V, --version')
+cmd.version(version, '-V, -v, --version')
   .command('init <name>')
   .description('创建项目脚手架，快速生成项目模版')
   .action(async (name) => {
@@ -55,7 +55,7 @@ cmd.version(version, '-V, --version')
   })
 
 // 初次使用需注册
-cmd.version(version, '-V, --version')
+cmd.version(version, '-V, -v, --version')
   .command('register')
   .alias('reg')
   .action(async () => {
@@ -67,7 +67,7 @@ cmd.version(version, '-V, --version')
   })
 
 // 统计使用
-cmd.version(version, '-V, --version')
+cmd.version(version, '-V, -v, --version')
   .command('usage')
   .description('统计脚手架使用，需传入统计开始日期')
   .alias('use')
@@ -79,7 +79,7 @@ cmd.version(version, '-V, --version')
     })
   })
 
-cmd.version(version, '-V, --version')
+cmd.version(version, '-V, -v, --version')
   .command('deploy')
   .description('部署项目上线，需在项目中约定配置 deploy.config.js ')
   .alias('d')
