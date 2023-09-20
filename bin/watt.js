@@ -57,6 +57,7 @@ cmd.version(version, '-V, -v, --version')
 // 初次使用需注册
 cmd.version(version, '-V, -v, --version')
   .command('register')
+  .description('初次使用需注册')
   .alias('reg')
   .action(async () => {
     const id = await machine.machineId()
