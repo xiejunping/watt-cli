@@ -80,6 +80,7 @@ cmd.version(version, '-V, -v, --version')
     })
   })
 
+// 部署项目
 cmd.version(version, '-V, -v, --version')
   .command('deploy')
   .description('部署项目上线，需在项目中约定配置 deploy.config.js ')
