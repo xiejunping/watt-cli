@@ -171,12 +171,13 @@ npm run serve
 #### 模板说明
 会在命令行提示显示
 模板列表
-- 旧版中台系统（vue2 + ant-design + vuex + router） **[`开源模版`](https://gitee.com/ChuPiJiang/library_vue2_admin)**
-- 中台系统（vue3 + ant-design + vuex + router）    **[`开源模版`](https://gitee.com/ChuPiJiang/library_vue3_admin)**
-- CMS静态网站或博客（nuxt2 + generate）            **[`开源模版`](https://gitee.com/ChuPiJiang/library_nuxt2_generate)**
+- 旧版中台系统（vue2 + ant-design + vuex + router） **[`开源模版`](https://gitee.com/ChuPiJiang/library_vue2_admin)**   已完成     
+- 中台系统（vue3 + ant-design + vuex + router）    **[`开源模版`](https://gitee.com/ChuPiJiang/library_vue3_admin)**   已完成     
+- CMS静态网站或博客（nuxt2 + generate）            **[`开源模版`](https://gitee.com/ChuPiJiang/library_nuxt2_generate)**   已完成     
 - 网站开发模版（nuxt3 + generate）               **[`开源模版`](https://gitee.com/ChuPiJiang/library-nuxt3-cms)**
 - H5活动单页（nuxt3 + vant4 + h5 ）                **[`开源模版`](https://gitee.com/ChuPiJiang/library-nuxt3-generate)**
-- 前端框架文档（vue2 + vuepress）                   **[`开源模版`](https://gitee.com/ChuPiJiang/library_vuepress_doc)**
+- 前端框架文档（vue2 + vuepress）                   **[`开源模版`](https://gitee.com/ChuPiJiang/library_vuepress_doc)**   已完成     
+- vue3前端框架文档（vuepress2 + vue3）              **[`开源模版`](https://gitee.com/ChuPiJiang/library_vuepress2_doc)**   已完成   
 
 更多待加...
 
