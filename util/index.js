@@ -44,7 +44,28 @@ function dataProvider (arr, fmtLabel = 'label', fmtValue = 'value') {
   return obj
 }
 
+/**
+ * 读取文本长度
+ * @param {*} val 字符串
+ * @param {*} num 一个汉字占2个字节（默认）
+ * @returns
+ */
+export function getByteLen (val, num) {
+  const charLen = num || 2
+  let len = 0
+  for (let i = 0; i < val.length; i++) {
+    const a = val.charAt(i)
+    if (a.match(/[^\x00-\xff]/ig) !== null) {
+      len += charLen
+    } else {
+      len += 1
+    }
+  }
+  return len
+}
+
 module.exports = {
   formatDate,
-  dataProvider
+  dataProvider,
+  getByteLen
 }
