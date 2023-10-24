@@ -50,7 +50,7 @@ function dataProvider (arr, fmtLabel = 'label', fmtValue = 'value') {
  * @param {*} num 一个汉字占2个字节（默认）
  * @returns
  */
-export function getByteLen (val, num) {
+function getByteLen (val, num) {
   const charLen = num || 2
   let len = 0
   for (let i = 0; i < val.length; i++) {
