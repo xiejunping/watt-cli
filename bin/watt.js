@@ -25,7 +25,7 @@ cmd.version(version, '-V, -v, --version')
   .option('-d, --dir <string> [dir]', '目录路径')
   .action(async (cmd) => {
     const id = await machine.machineId()
-    await sentry(id, 'upload')
+    sentry(id, 'upload')
     require('../lib/uploader').run(cmd, id)
   })
 
@@ -38,7 +38,7 @@ cmd.version(version, '-V, -v, --version')
   .option('-d, --dir <string> [dir]', '目录路径')
   .action(async (cmd) => {
     const id = await machine.machineId()
-    await sentry(id, 'refresh')
+    sentry(id, 'refresh')
     require('../lib/cdn').run(cmd, id)
   })
 
@@ -48,7 +48,7 @@ cmd.version(version, '-V, -v, --version')
   .description('创建项目脚手架，快速生成项目模版')
   .action(async (name) => {
     const id = await machine.machineId()
-    await sentry(id, 'init')
+    sentry(id, 'init')
     inquirer.prompt(initQues).then(answers => {
       require('../lib/cli/' + answers.type)(name)
     })
@@ -61,7 +61,7 @@ cmd.version(version, '-V, -v, --version')
   .alias('reg')
   .action(async () => {
     const id = await machine.machineId()
-    await sentry(id, 'reg')
+    sentry(id, 'reg')
     inquirer.prompt(regQues).then(answers => {
       require('../lib/register').run(answers, id)
     })
@@ -74,7 +74,7 @@ cmd.version(version, '-V, -v, --version')
   .alias('use')
   .action(async () => {
     const id = await machine.machineId()
-    await sentry(id, 'use')
+    sentry(id, 'use')
     inquirer.prompt(useQues).then(answers => {
       require('../lib/usage').run(answers, id)
     })
@@ -97,7 +97,7 @@ cmd.version(version, '-V, -v, --version')
       console.log(chalk.red('配置文件不存在, 请在项目根目录手动创建文件 deploy.config.js'))
       process.exit(1)
     }
-    await sentry(id, 'deploy')
+    sentry(id, 'deploy')
     require('../lib/deploy/index').run(id)
   })
 
