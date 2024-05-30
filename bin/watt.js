@@ -13,6 +13,7 @@ const { version } = require('../package.json')
 const initQues = require('../lib/question/init')
 const regQues = require('../lib/question/reg')
 const useQues = require('../lib/question/use')
+const ptypeQues = require('../lib/question/ptype')
 
 // 静态资源工具
 cmd.version(version, '-V, -v, --version')
@@ -99,6 +100,27 @@ cmd.version(version, '-V, -v, --version')
     }
     sentry(id, 'deploy')
     require('../lib/deploy/index').run(id)
+  })
+
+// 创建页面
+cmd.version(version, '-V, -v, --version')
+  .command('createpage')
+  .description('创建页面，快速生成路由模版')
+  .alias('cp')
+  .action(async () => {
+    const id = await machine.machineId()
+    sentry(id, 'createpage')
+    const isRoot = fs.existsSync(path.resolve(process.cwd(), 'package.json'))
+    if (!isRoot) {
+      console.log(chalk.red('请在项目根目录下执行部署命令'))
+      process.exit(1)
+    }
+    inquirer.prompt(ptypeQues).then(project => {
+      const cpQues = require('../lib/question/createpage/' + project.type)
+      inquirer.prompt(cpQues).then(answers => {
+        require('../lib/createpage/' + project.type).run(answers)
+      })
+    })
   })
 
 cmd.parse(process.argv);
