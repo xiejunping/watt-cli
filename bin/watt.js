@@ -89,17 +89,33 @@ cmd.version(version, '-V, -v, --version')
   .action(async () => {
     const id = await machine.machineId()
     const isRoot = fs.existsSync(path.resolve(process.cwd(), 'package.json'))
-    const hasDeployConfig = fs.existsSync(path.resolve(process.cwd(), 'deploy.config.js'))
     if (!isRoot) {
       console.log(chalk.red('请在项目根目录下执行部署命令'))
       process.exit(1)
     }
+    const hasDeployConfig = fs.existsSync(path.resolve(process.cwd(), 'deploy.config.js'))
     if (!hasDeployConfig) {
       console.log(chalk.red('配置文件不存在, 请在项目根目录手动创建文件 deploy.config.js'))
       process.exit(1)
     }
     sentry(id, 'deploy')
     require('../lib/deploy/index').run(id)
+  })
+
+// 部署回滚
+cmd.version(version, '-V, -v, --version')
+  .command('revert')
+  .description('部署应急回滚，需在要据本地项目判断是否存在backup')
+  .alias('rt')
+  .action(async () => {
+    const id = await machine.machineId()
+    const isRoot = fs.existsSync(path.resolve(process.cwd(), 'package.json'))
+    if (!isRoot) {
+      console.log(chalk.red('请在项目根目录下执行部署命令'))
+      process.exit(1)
+    }
+    sentry(id, 'revert')
+    require('../lib/revert/index').run(id)
   })
 
 // 创建页面
