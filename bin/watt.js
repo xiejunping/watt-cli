@@ -114,6 +114,11 @@ cmd.version(version, '-V, -v, --version')
       console.log(chalk.red('请在项目根目录下执行部署命令'))
       process.exit(1)
     }
+    const hasBackup = fs.existsSync(path.resolve(process.cwd(), 'backup'))
+    if (!hasBackup) {
+      console.log(chalk.red('没有找到备份文件，请先执行部署再执行回滚'))
+      process.exit(1)
+    }
     sentry(id, 'revert')
     require('../lib/revert/index').run(id)
   })
