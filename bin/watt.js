@@ -14,6 +14,7 @@ const initQues = require('../lib/question/init')
 const regQues = require('../lib/question/reg')
 const useQues = require('../lib/question/use')
 const ptypeQues = require('../lib/question/ptype')
+const revertQues = require('../lib/question/revert')
 
 // 静态资源工具
 cmd.version(version, '-V, -v, --version')
@@ -119,8 +120,16 @@ cmd.version(version, '-V, -v, --version')
       console.log(chalk.red('没有找到备份文件，请先执行部署再执行回滚'))
       process.exit(1)
     }
-    sentry(id, 'revert')
-    require('../lib/revert/index').run(id)
+    revertQues[0].choices = fs.readdirSync(path.resolve(process.cwd(), 'backup')).map(item => {
+      return {
+        name: item,
+        value: item
+      }
+    })
+    inquirer.prompt(revertQues).then(project => {
+      require('../lib/revert/index').run(project.tag)
+      sentry(id, 'revert')
+    })
   })
 
 // 创建页面
