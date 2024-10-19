@@ -16,9 +16,9 @@
 [![size][size]][size-url] -->
 
 ## 介绍
-来吧，大家一起重复造轮子--“企业级前端脚手架”。有没有想过，当公司要求你进步时，你是否知道，为什么要生产一个脚手架，难道`vue-cli`他不香吗...
+为什么要生产一个脚手架，难道`vue-cli`他不香吗...
 
-不是代码不能外泄，也不是怕别人抄。主要它能真正减少工作量，提高效率。
+来吧，大家好，Watt-cli 是一个“企业级前端脚手架”，它可以帮助你快速搭建企业级前端项目，提高开发效率，降低开发成本。
 
 那么一个优秀的企业脚手架，需要提供什么功能：
 
@@ -27,10 +27,12 @@
 - （3）快速在项目中创建路由页面
 - （4）创建模板项目
 - （5）统计脚手架使用情况
-- （6）部署项目上线
-- （7）还有更多...
+- （6）集成CDN静态文件上传
+- （7）集成代码规范检测 （暂时未开发）
+- （8）部署、回滚项目上线
+- （9）还有更多...
 
-
+准确来讲，Watt-cli 是一个适合个人开发者自用的脚手架，它集成了一些上面的所有功能，并且还在不断完善中，欢迎大家提出宝贵意见，共同打造一个优秀的企业级前端脚手架。
 
 ## 安装教程
 
@@ -129,10 +131,10 @@ watt u -f ./lib/uploader/banner_bg.jpg -p demo  # 假使这个目录的文件存
 ```shell
 
 # 更新cdn 链接
-watt r -f https://static.jsvue.cn/xx.png 
+$ watt r -f https://static.jsvue.cn/xx.png 
 
 # 更新cdn 目录
-watt r -d https://static.jsvue.cn/xxx/dir 
+$ watt r -d https://static.jsvue.cn/xxx/dir 
 ```
 | 参数名  |  全称参数  | 说明  |
 | :-     |   :-:    |  :-:    |
@@ -208,7 +210,9 @@ C:\workspace\gitee\xxxxx\src>watt deploy
 
 同时 因为 安全性与工具的适用性，所以 需预先自定义好约定的配置文件 `deploy.config.js` 这个文件在`项目根目录`，需要您自行新建好，
 
-同样，没有配置文件也会提示错误
+同样，没有配置文件也会提示错误。
+
+为了增加发布可靠性，我们在发布前进行了线上代码的备份，需要在项目中根目录增加备份（backup）目录，防止出现意外情况。
 
 配置文件样本 
 
@@ -216,7 +220,7 @@ C:\workspace\gitee\xxxxx\src>watt deploy
 'use strict';
 
 module.exports = {
-  SecretId: 'AKID********q0wd5', // 账号ID (控制账号权限，只能用于上传文件，与刷新目录)
+  SecretId: 'AKID********q0wd5', // 账号ID (控制账号权限，只能用于上传/下载文件，与刷新目录)
   SecretKey: 'JQJ*****eDXeZ', // 密钥
   Bucket: 'vuepress-12xx508', // 存储桶名字
   Region: 'ap-shanghai', // 存储桶所在区域
@@ -239,7 +243,28 @@ module.exports = {
 项目部署成功，请访问线上地址  https://doc.jsvue.cn/pc/
 ```
 
-如有上传错误，不会中断发布，但是会提示错误的文件及条数，需人工审核再次发布    
+如有上传错误，不会中断发布，但是会提示错误的文件及条数，需人工审核再次发布  
+
+### 部署回滚
+
+`watt revert` 或者 简写 `watt rt` 命令
+
+这个命令必须在终端的`项目根目录`执行，当然，也做了提示，您也可能会看到错误提示    
+``` shell
+C:\workspace\gitee\xxxxx\src>watt revert
+请在项目根目录下执行部署回滚命令
+```
+
+同样，没有配置文件也会提示错误。
+``` shell
+C:\workspace\gitee\xxxxx\src>watt rt
+没有找到备份文件，请先执行部署再执行回滚
+
+C:\workspace\gitee\xxxxx\src>watt rt
+? 请选择备份名称，格式：最近备份线上资源时间 (Use arrow keys)
+> 202410190850 
+```
+
 
 ## 示例
 
